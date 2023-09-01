@@ -27,4 +27,29 @@ def fatorialNR(n):
 
 # print(f'O numero fatorial é: {fatorialNR(num)}')
 
-def 
+def fibonnaci(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    if n > 1:
+        return fibonnaci(n-1) + fibonnaci(n-2)
+
+print(f'O numero de fibonnaci é: {fibonnaci(num)}')
+
+def fibonnaciNR(n):
+    if n == 0:
+        return 0
+    if n == 1: 
+        return 1
+    F1 = 0
+    F2 = 1
+
+    for i in range(2,n+1):
+        F = F1 + F2
+        F1 = F2
+        F2 = F
+    return F
+
+
+print(f'O numero de fibonnaci é: {fibonnaciNR(num)}')
