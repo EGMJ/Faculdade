@@ -1,3 +1,7 @@
+import time
+
+
+
 name = "Edson"
 
 print(name)
@@ -7,16 +11,16 @@ print(name)
 name += 1
 print(name)
 
+num = int(input("insira o numero"))
 
 def fatorial(n):
     if(n == 0):
         return 1
     return n*fatorial(n-1)
 
-
-num = int(input("insira o numero"))
 # print(f'O numero fatorial é: {fatorial(num)}')
 # print(f'O numero fatorial '+str(num) + 'é: ',fatorial(num))
+
 
 
 def fatorialNR(n):
@@ -35,8 +39,6 @@ def fibonnaci(n):
     if n > 1:
         return fibonnaci(n-1) + fibonnaci(n-2)
 
-print(f'O numero de fibonnaci é: {fibonnaci(num)}')
-
 def fibonnaciNR(n):
     if n == 0:
         return 0
@@ -51,5 +53,15 @@ def fibonnaciNR(n):
         F2 = F
     return F
 
+inicioR = time.time()
+print("Fibonnaci recursivo")
+fimR = time.time()
+inicioNR = time.time()
+print(f'O numero de fibonnaci é: {fibonnaci(num)}')
+fimNR = time.time()
 
+print("Fibonnaci não recursivo")
 print(f'O numero de fibonnaci é: {fibonnaciNR(num)}')
+
+print("\n\n O tempo da Fibonnaci recursivo é de: ",(fimNR-inicioNR),"segundos")
+print("\n\n O tempo da Fibonnaci recursivo é de: ",(fimR-inicioR),"segundos")
