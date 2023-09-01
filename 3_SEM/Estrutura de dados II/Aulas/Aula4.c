@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <time.h>
+time_t inicioR, fimR,inicioRN,fimRN;
+
 
 // recursividade
 // void main(void){
@@ -30,14 +33,25 @@
 // }
 
 void main(void){
+    int num;
     setlocale(LC_ALL,"Portuguese");
+    
     printf("Insira o valor de fibonnaci ");
 
-    int num;
-
     scanf("%d", &num);   
+    
+    time(&inicioRN);
     printf("\no valor de fibonnaci do %d, é: %d", num,fiboNR(num));
+    time(&fimRN);
+    
+    time(&inicioR);
     printf("\no valor de fibonnaci do %d, é: %d", num,fibonacci(num));
+    time(&fimR);
+
+    printf("\n\n Tempo para executar o: ");
+    printf("\n\n Recursivo: %ld seg", (fimR-inicioR));
+    printf("\n\n Tempo para executar o: ");
+    printf("\n\n Não-Recursivo: %ld seg", (fimRN-inicioRN));
 
 }
 // recursivo
