@@ -24,9 +24,7 @@ int main(void) {
     inserirNaListaValor(&lista, 12);
 	//apagarLista(&lista);
     exibirLista(&lista);
-    removerValorLista(&lista, 7
-	
-	,);
+    removerValorLista(&lista, 7);
     printf("\nA quantidade de elementos na lista é: %d\n", qtdElementosNaLista(&lista, 0));
     
     return 0;

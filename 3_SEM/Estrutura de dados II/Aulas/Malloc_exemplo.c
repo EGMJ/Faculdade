@@ -6,7 +6,6 @@
 const int TAMANHO = 7;
 
 // Alocação de memoria dinamica
-
 void main(void){	
 	setlocale(LC_ALL,"Portuguese");
     int *x;
@@ -31,6 +30,7 @@ void main(void){
 }
 
 void lendoNome(int **n){
+// void lendoNome(char **n){ acho que é char ao inves de int
     char auxNome[200];
 
     printf("\n\n Insira seu nome: ");
