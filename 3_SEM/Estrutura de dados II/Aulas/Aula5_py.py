@@ -69,7 +69,6 @@ def somaMult(i, soma):
     return soma
 
 print(f"\n A soma dos multiplos de 5 e 3 é: {somaMult(1,0)}")
-"""
 # escreva um programa que dado um numero ele diz se é primo ou nao
 
 def verificaPrimo(num, i, primo):
@@ -78,6 +77,7 @@ def verificaPrimo(num, i, primo):
             return False
         primo = verificaPrimo(num, i+1, primo)
     return primo
+
 num = int(input("Insira o numero: ")) 
 print(f"O numero {num} é primo? {verificaPrimo(num, 2, True)}")        
-
+"""
