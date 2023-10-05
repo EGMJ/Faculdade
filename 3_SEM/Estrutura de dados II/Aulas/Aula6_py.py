@@ -25,7 +25,7 @@ def em_ordem(raiz):
     em_ordem(raiz.direita)
 
 raiz = NodoArvore(3)
-
+'''
 raiz.esquerda = NodoArvore(1)
 raiz.direita = NodoArvore(8)
 
@@ -35,10 +35,44 @@ raiz.direita.esquerda = NodoArvore(6)
 raiz.esquerda.esquerda = NodoArvore(-3)
 raiz.esquerda.direita = NodoArvore(2)
 
+'''
 
 # print(raiz)
 # print(raiz.esquerda)
 # print(raiz.direita)
 
+
+# em_ordem(raiz)
+
+
+def pos_ordem(raiz):
+    pass
+
+
+def inserir_ordenado(raiz, no):
+    # iniserir um no na raiz
+
+    if raiz == None:
+        raiz = no
+    
+    # o no deve ser inserido na subarvore direita
+    elif raiz.chave < no.chave:
+        if raiz.direita == None:
+            raiz.direita = no
+        else:
+            inserir_ordenado(raiz.direita, no)
+
+    # o no deve ser inserido na subarvore esquerda
+    else:
+        if raiz.esquerda == None:
+            raiz.esquerda = no
+        else:
+            inserir_ordenado(raiz.esquerda, no) 
+
+inserir_ordenado(raiz, NodoArvore(1))
+inserir_ordenado(raiz, NodoArvore(23))
+inserir_ordenado(raiz, NodoArvore(4))
+inserir_ordenado(raiz, NodoArvore(9))
+inserir_ordenado(raiz, NodoArvore(100))
 
 em_ordem(raiz)

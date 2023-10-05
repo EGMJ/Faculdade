@@ -28,6 +28,4 @@ void main(void){
         - o nivel começa na raiz e vai paras as folhas já a altura é o contrario que começa pelos que nao tem filhos
     */
 
-
-
 }
