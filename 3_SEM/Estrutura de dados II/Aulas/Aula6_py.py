@@ -76,3 +76,20 @@ inserir_ordenado(raiz, NodoArvore(9))
 inserir_ordenado(raiz, NodoArvore(100))
 
 em_ordem(raiz)
+
+def busca_binaria(raiz, no):
+    # procura por um valor em uma arvore binaria de pesquisa
+
+    # trata o caso em que valor 
+    if raiz is None:
+        return None
+
+    if raiz.chave == no:
+        return raiz.chave
+    
+    if raiz.chave < no:
+        return busca_binaria(raiz.direita, no)
+
+    return busca_binaria(raiz.esquerda, no)
+
+
