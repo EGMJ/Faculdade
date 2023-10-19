@@ -1,11 +1,13 @@
 
 # metodo construtor
 class NodoArvore():
-    def __init__(self, chave = None, esquerda = None, direita = None):
+    def __init__(self, chave = None, esquerda = None, direita = None, altura = None):
         self.chave = chave
         self.esquerda = esquerda
         self.direita = direita
-        
+        self.altura = altura
+
+
 
     def __repr__(self):
         return '%s <- %s -> %s' % (self.esquerda and self.esquerda.chave, self.chave, self.direita and self.direita.chave)
@@ -39,6 +41,40 @@ def em_ordem(raiz):
 
     em_ordem(raiz.direita)
 
+
+
+def em_ordemAltura(raiz):
+    if not raiz:
+        return
+    
+    em_ordemAltura(raiz.esquerda)
+    print(raiz.altura,", ",end="")
+    em_ordemAltura(raiz.direita)
+
+
+def calc_altura(raiz):
+    if not raiz:
+        return
+    calc_altura(raiz.esquerda)
+    calc_altura(raiz.direita)
+
+    # chegamos no nó folha
+    if not raiz.esquerda and not raiz.direita:
+        raiz.altura = 0
+
+    if raiz.esquerda and not raiz.direita:
+        raiz.altura = raiz.esquerda.altura + 1
+
+    if not raiz.esquerda and raiz.direita:
+        raiz.altura = raiz.direita.altura + 1
+
+    if raiz.esquerda and raiz.direita:
+        if raiz.esquerda.altura >= raiz.direita.altura:
+            raiz.altura = raiz.esquerda.altura + 1
+        else:
+            raiz.altura = raiz.direita.altura + 1
+        
+
 raiz = NodoArvore(35)
 valores = [20,41,11,27,40,56,21,74]
 
@@ -46,4 +82,8 @@ for key in valores:
     nodo = NodoArvore(key)
     inserir_ordenado(raiz,nodo)
 
-em_ordem(raiz)
+
+calc_altura(raiz)
+print("\n")
+em_ordemAltura(raiz)
+print("\n")
