@@ -28,7 +28,15 @@ def inserir_ordenado(raiz, no):
         else:
             inserir_ordenado(raiz.esquerda, no) 
 
+def em_ordem(raiz):
+    if not raiz:
+        return
+    
+    em_ordem(raiz.esquerda)
 
+    print(raiz.chave,", ",end="")
+
+    em_ordem(raiz.direita)
 
 raiz = NodoArvore(35)
 valores = [20,41,11,27,40,56,21,74]
@@ -37,3 +45,4 @@ for key in valores:
     nodo = NodoArvore(key)
     inserir_ordenado(raiz,nodo)
 
+em_ordem(raiz)
