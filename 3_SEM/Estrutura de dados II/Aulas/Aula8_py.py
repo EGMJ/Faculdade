@@ -89,6 +89,9 @@ def calc_fator_balanciamento(raiz, fator = None):
 
     if raiz.esquerda and raiz.direita:
         fator = raiz.esquerda.altura - raiz.direita.altura
+    if fator < 0:
+        fator = fator * (-1)
+
 
 raiz = NodoArvore(35)
 valores = [20,41,11,27,40,56,21,74]
