@@ -71,14 +71,14 @@ def calc_altura(raiz):
             raiz.altura = raiz.direita.altura + 1     
 
 
-def calc_fator_balanciamento(raiz, fator = None):
+def calc_fator_balanciamento(raiz, noDesbalanciado = None):
     if not raiz:
         return
-    calc_fator_balanciamento(raiz.esquerda, fator)
-    calc_fator_balanciamento(raiz.direita, fator)
+    noDesbalanciado = calc_fator_balanciamento(raiz.esquerda, noDesbalanciado)
+    noDesbalanciado = calc_fator_balanciamento(raiz.direita, noDesbalanciado)
     
     # chegamos no nó folha
-    if not raiz.esquerda. and not raiz.direita:
+    if not raiz.esquerda and not raiz.direita:
         fator = 0
 
     if raiz.esquerda and not raiz.direita:
@@ -89,18 +89,29 @@ def calc_fator_balanciamento(raiz, fator = None):
 
     if raiz.esquerda and raiz.direita:
         fator = raiz.esquerda.altura - raiz.direita.altura
+
     if fator < 0:
         fator = fator * (-1)
+    if not noDesbalanciado and fator > 1:
+        noDesbalanciado = raiz.chave
+        return noDesbalanciado
+    return noDesbalanciado
 
 
-raiz = NodoArvore(35)
-valores = [20,41,11,27,40,56,21,74]
+# raiz = NodoArvore(35)
+raiz = NodoArvore(9)
+# valores = [20,41,11,27,40,56,21,74]
+valores = [11,20,21,27,40,56,61,74]
 
 for key in valores:
     nodo = NodoArvore(key)
     inserir_ordenado(raiz,nodo)
 
+
 calc_altura(raiz)
 print("\n")
 em_ordemAltura(raiz)
 print("\n")
+em_ordem(raiz)
+print("\n")
+print(calc_fator_balanciamento(raiz))
