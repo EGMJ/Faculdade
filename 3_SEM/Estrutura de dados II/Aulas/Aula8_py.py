@@ -7,10 +7,9 @@ class NodoArvore():
         self.direita = direita
         self.altura = altura
 
-
-
     def __repr__(self):
         return '%s <- %s -> %s' % (self.esquerda and self.esquerda.chave, self.chave, self.direita and self.direita.chave)
+
 
 def inserir_ordenado(raiz, no):
     # iniserir um no na raiz
@@ -41,8 +40,6 @@ def em_ordem(raiz):
 
     em_ordem(raiz.direita)
 
-
-
 def em_ordemAltura(raiz):
     if not raiz:
         return
@@ -50,7 +47,6 @@ def em_ordemAltura(raiz):
     em_ordemAltura(raiz.esquerda)
     print(raiz.altura,", ",end="")
     em_ordemAltura(raiz.direita)
-
 
 def calc_altura(raiz):
     if not raiz:
@@ -72,8 +68,27 @@ def calc_altura(raiz):
         if raiz.esquerda.altura >= raiz.direita.altura:
             raiz.altura = raiz.esquerda.altura + 1
         else:
-            raiz.altura = raiz.direita.altura + 1
-        
+            raiz.altura = raiz.direita.altura + 1     
+
+
+def calc_fator_balanciamento(raiz, fator = None):
+    if not raiz:
+        return
+    calc_fator_balanciamento(raiz.esquerda, fator)
+    calc_fator_balanciamento(raiz.direita, fator)
+    
+    # chegamos no nó folha
+    if not raiz.esquerda. and not raiz.direita:
+        fator = 0
+
+    if raiz.esquerda and not raiz.direita:
+        fator = raiz.esquerda.altura - (-1)
+
+    if not raiz.esquerda and raiz.direita:
+        fator = (-1) - raiz.direita.altura
+
+    if raiz.esquerda and raiz.direita:
+        fator = raiz.esquerda.altura - raiz.direita.altura
 
 raiz = NodoArvore(35)
 valores = [20,41,11,27,40,56,21,74]
@@ -81,7 +96,6 @@ valores = [20,41,11,27,40,56,21,74]
 for key in valores:
     nodo = NodoArvore(key)
     inserir_ordenado(raiz,nodo)
-
 
 calc_altura(raiz)
 print("\n")
